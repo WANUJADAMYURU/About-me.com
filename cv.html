@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+ <html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Password Protected Page</title>
+<style> 
+body { font-family: Arial, sans-serif;
+       /* The image used */
+       background-image: url("sidenav.jpg");
+       /* Add the blur effect */
+       filter: blur(8px);
+       -webkit-filter: blur(0px);
+       /* Center and scale the image nicely */
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover; 
+       display: flex; 
+       justify-content: center; 
+       align-items: center; 
+       height: 100vh; 
+       margin: 0; }
+
+.login-box {background: white;
+            padding: 35px; 
+            border-radius: 12px; 
+            text-align: center; 
+            width: 300px; 
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); }
+
+h2 { color: black; }
+
+input { width: 100%; padding: 12px 0; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; text-align: center; font-size: 16px; }
+
+button { width: 100%; padding: 12px; background: grey; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; }
+
+button:hover { background: rgba(0, 0, 0, 0.4); }
+
+#message { color: red; margin-top: 12px; } 
+</style> 
+</head>
+
+<body>
+
+<div class="login-box"> <h2>Login</h2><img width="73.44px" height="66.48px" src="Damyuru2.jpeg" style="border-radius: 50%"/> <p>Enter password on my cv to continue</p>
+
+<form id="loginForm"> <input type="password" id="password" placeholder="Enter password" required >
+
+<button type="submit">Login</button> </form>
+
+<p id="message"></p> </div>
+<script src="mine.js"></script>
+
+
+
+</body> 
+</html>
