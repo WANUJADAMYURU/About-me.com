@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+ <html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Login</title>
+<style> 
+body { font-family: Arial, sans-serif;
+       /* The image used */
+       background-image: url("sidenav.jpg");
+       /* Add the blur effect */
+       filter: blur(8px);
+       -webkit-filter: blur(0px);
+       /* Center and scale the image nicely */
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover; 
+       display: flex; 
+       justify-content: center; 
+       align-items: center; 
+       height: 100vh; 
+       margin: 0; }
+
+.login-box {background: white;
+            padding: 35px; 
+            border-radius: 12px; 
+            text-align: center; 
+            width: 300px; 
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); }
+
+h2 { color: black; }
+
+input { width: 100%; padding: 12px 0; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; text-align: center; font-size: 16px; }
+
+button { width: 100%; padding: 12px; background: grey; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; }
+
+button:hover { background: rgba(0, 0, 0, 0.4); }
+
+#message { color: red; margin-top: 12px; }
+* {
+            box-sizing: border-box;
+        }
+
+        .slideshow {
+            margin: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+}
+
+        .slideshow-container {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        /* Image frame */
+        .slideshow {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.55),
+                0 0 20px rgba(255, 255, 255, 0.08);
+        }
+
+        /* Individual slides */
+        .slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Image shadow and caption overlay */
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 35px 20px 25px;
+            background: linear-gradient(
+                transparent,
+                rgba(0, 0, 0, 0.85)
+            );
+            text-align: left;
+            z-index: 2;
+        }
+
+        .caption h2 {
+            margin: 0 0 8px;
+            font-size: 28px;
+        }
+
+        .caption p {
+            margin: 0;
+            color: #ddd;
+        }
+
+        /* Previous and next buttons */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 25px;
+            color: white;
+            background: rgba(0, 0, 0, 0.55);
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .prev {
+            left: 15px;
+        }
+
+        .next {
+            right: 15px;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .controls button {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .controls button:hover {
+            background: #80e5ff;
+        }
+
+        /* Slide indicators */
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #718096;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #00c6ff;
+            transform: scale(1.25);
+        }
+
+        #slideNumber {
+            margin-top: 15px;
+            color: #cbd5e0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .slideshow {
+                height: 320px;
+            }
+
+            .caption h2 {
+                font-size: 22px;
+            }
+
+            .nav-btn {
+                width: 42px;
+                height: 42px;
+            }
+        } 
+</style> 
+</head>
+
+<body>
+<div class="slideshow">
+
+<div class="slideshow-container">
+
+    <h1>My Photo Gallery</h1>
+
+    <div class="slideshow" id="slideshow">
+
+        <img
+            class="slide active"
+            src="img.jpg"
+            alt="Face Capture"
+        >
+
+        <img
+            class="slide"
+            src="https://picjumbo.com/wp-content/uploads/beautiful-nature-scenery-free-photo-2210x1473.jpg"
+            alt="Mountain lake"
+        >
+
+        <img
+            class="slide"
+            src="https://tse1.mm.bing.net/th/id/OIP.fj2jV4HDxQ_SI642iyr73AHaEO?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt="Code of music"
+        >
+
+        <img
+            class="slide"
+            src="https://tse3.mm.bing.net/th/id/OIP.0vJ0tmOZvIbfHZ3NodclRQHaEO?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt="Education"
+        >
+
+        <div class="caption">
+            <h2 id="captionTitle">Beautiful Nature</h2>
+            <p id="captionText">Discover the beauty of the world.</p>
+        </div>
+
+        <button class="nav-btn prev"
+                id="prevBtn"
+                aria-label="Previous image">
+            &#10094;
+        </button>
+
+        <button class="nav-btn next"
+                id="nextBtn"
+                aria-label="Next image">
+            &#10095;
+        </button>
+
+    </div>
+
+    <div class="controls">
+        <button id="playPauseBtn">⏸ Pause</button>
+        <button id="restartBtn">↻ Restart</button>
+    </div>
+
+    <div class="dots" id="dots"></div>
+
+    <div id="slideNumber" aria-live="polite">
+        Image 1 of 4
+    </div>
+
+</div>
+</div>
+<div class="login-box"> <h2>Login</h2><img width="73.44px" height="66.48px" src="Damyuru2.jpeg" style="border-radius: 50%"/> <p>Enter password on my C.V. to continue</p>
+
+<form id="loginForm"> <input type="password" id="password" placeholder="Enter password" required >
+
+<button type="submit">Login</button> </form>
+
+<p id="message"></p> </div>
+<script src="wanuja.js"></script>
+<script>
+    const slides = document.querySelectorAll(".slide");
+    const dotsContainer = document.getElementById("dots");
+
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const restartBtn = document.getElementById("restartBtn");
+
+    const captionTitle = document.getElementById("captionTitle");
+    const captionText = document.getElementById("captionText");
+    const slideNumber = document.getElementById("slideNumber");
+
+    const captions = [
+        {
+            title: "Welcome!",
+            text: "I am Wanuja."
+        },
+        {
+            title: "A Nature Lover",
+            text: "Nature is My Heart."
+        },
+        {
+            title: "A Music Lover",
+            text: "Music is My Style."
+        },
+        {
+            title: "A Researcher",
+            text: "Research is My Trust."
+        }
+    ];
+
+    let currentIndex = 0;
+    let timer = null;
+    let isPlaying = true;
+
+    const intervalTime = 4000;
+
+    // Create clickable indicator dots.
+    slides.forEach((slide, index) => {
+        const dot = document.createElement("button");
+
+        dot.className = "dot";
+        dot.type = "button";
+        dot.setAttribute("aria-label", `Show image ${index + 1}`);
+
+        dot.addEventListener("click", () => {
+            showSlide(index);
+            startAutoPlay();
+        });
+
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll(".dot");
+
+    // Display a selected slide.
+    function showSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === currentIndex);
+        });
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentIndex);
+            dot.setAttribute(
+                "aria-current",
+                i === currentIndex ? "true" : "false"
+            );
+        });
+
+        captionTitle.textContent = captions[currentIndex].title;
+        captionText.textContent = captions[currentIndex].text;
+
+        slideNumber.textContent =
+            `Image ${currentIndex + 1} of ${slides.length}`;
+    }
+
+    // Move to the next image.
+    function nextSlide() {
+        showSlide(currentIndex + 1);
+    }
+
+    // Move to the previous image.
+    function previousSlide() {
+        showSlide(currentIndex - 1);
+    }
+
+    // Stop any existing timer and start automatic playback.
+    function startAutoPlay() {
+        clearInterval(timer);
+
+        isPlaying = true;
+        playPauseBtn.textContent = "⏸ Pause";
+
+        timer = setInterval(nextSlide, intervalTime);
+    }
+
+    // Pause automatic playback.
+    function pauseAutoPlay() {
+        clearInterval(timer);
+        timer = null;
+
+        isPlaying = false;
+        playPauseBtn.textContent = "▶ Play";
+    }
+
+    // Manual navigation.
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        nextSlide();
+        if (isPlaying) startAutoPlay();
+    });
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        previousSlide();
+        if (isPlaying) startAutoPlay();
+    });
+
+    // Toggle automatic playback.
+    playPauseBtn.addEventListener("click", () => {
+        if (isPlaying) {
+            pauseAutoPlay();
+        } else {
+            startAutoPlay();
+        }
+    });
+
+    // Return to the first image and restart the slideshow.
+    restartBtn.addEventListener("click", () => {
+        showSlide(0);
+        startAutoPlay();
+    });
+
+    // Pause while the mouse is over the slideshow.
+    const slideshow = document.getElementById("slideshow");
+
+    slideshow.addEventListener("mouseenter", () => {
+        if (isPlaying) {
+            clearInterval(timer);
+            timer = null;
+        }
+    });
+
+    slideshow.addEventListener("mouseleave", () => {
+        if (isPlaying && timer === null) {
+            timer = setInterval(nextSlide, intervalTime);
+        }
+    });
+
+    // Start the slideshow.
+    showSlide(0);
+    startAutoPlay();
+</script>
+
+
+</body> 
+</html>
