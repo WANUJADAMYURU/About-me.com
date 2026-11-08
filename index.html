@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--Deployed by Wanuja.-->
+<html lang="en" translate="no" oncontextmenu="return false;">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HAPPY NEW YEAR!</title>
+<link rel="icon" type="image/gif" href="happynewyear.gif">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=folded_hands" />
+<link rel="stylesheet" href="style.css" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JKKSR78ZFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JKKSR78ZFW');
+</script>
+
+<style>
+#icon {font-size: 30px;
+       color: gold;}
+#button {
+    transition: color 0.5s ease; /* Smooth transition for color change */
+  }
+#style {
+    transition: color 0.5s ease; /* Smooth transition for color change */
+  }
+text1 {color: red;font-family: cursive;}
+
+    .bg-img {
+        /* The image used */
+  background-image: url("diwali.gif");
+  
+  /* Add the blur effect */
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+  
+  
+  height: 1200px;
+  width: 100%;
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    }
+.text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+.text2 {
+    
+    /* Apply the 'shake' animation */
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both infinite;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px; /* These properties can help prevent rendering issues in some browsers */
+}
+
+/* Define the keyframes for the shake animation */
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0); /* Move 1px left */
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0); /* Move 2px right */
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0); /* Move 4px left */
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0); /* Move 4px right */
+    }
+}
+
+</style>
+</head>
+<body>
+<div class="bg-img">
+<div class="text">
+<img width="300px" height="300px" src="Stick10.png" alt="HAPPY DIWALI!"/> 
+<p><h1 style="color: gold;font-family: Lucida Handwriting;">May the</h1></p>
+<p><h1 class="text2" style="color: gold;font-family: Lucida Handwriting;font-size: 30px;"><b>GOOD WISHES SHINE</b></h1></p>
+<p><h1 style="color: gold;font-family: Lucida Handwriting;">in this</h1></p>
+<p><h1 id="style" class="text2"  style="color: gold;font-family: Lucida Handwriting;font-size: 75px;"><b>DIWALI!</b></h1></p>
+<h3 style="color: gold;font-family: sans-serif"><span id="icon" class="material-symbols-outlined">folded_hands</span>FROM WANUJA.</h3>
+<button onclick="location.href='login.html'" id="button" style="background-color: transparent;border-radius: 20px;border-color: white;"><h2>START</h2></button>
+
+</div>
+</div>
+
+<script>
+  // Get the element by its ID
+  const textElement = document.getElementById('button');
+
+  // Array of colors to cycle through
+  const colors = ['gold', 'palevioletred', 'purple', 'palevioletred', 'gold'];
+  let colorIndex = 0;
+
+  // Function to change the text color
+  function changeColor() {
+    // Change the color of the text element
+    textElement.style.color = colors[colorIndex];
+
+    // Move to the next color in the array
+    colorIndex = (colorIndex + 1) % colors.length;
+  }
+
+  // Call the changeColor function every 1000 milliseconds (1 seconds)
+  setInterval(changeColor, 1000);
+
+  // Call changeColor immediately on page load to set the initial color
+  changeColor();
+</script>
+</body>
+</html>
